@@ -3,8 +3,6 @@ Group Members: Angel Beltran, Andrew Carias, Anna Le, Johanna Vergara
 
 Project Description: 
 
-
-
 # Import data into R 
 HINTSData_2020_clean <- read.csv("HINTSData_2020_clean.csv")
 # Preview of first 6 rows 
@@ -113,3 +111,27 @@ WeeklyMinutesModerateExercise
 271.189253 
 BMI 
 6.538369 
+
+  # Install Dyplr first
+install.packages("dplyr")
+library(dplyr) # Run Dyplr
+
+grouped_summary <- HINTS_subset |>
+group_by(smokeStat) |>
+summarise(
+  across(
+      all_of(continuous_variables),
+    list(
+    Min = ~min(.x, na.rm = TRUE),
+    Q1 = ~quantile(.x, 0.25, na.rm = TRUE),
+    Median = ~median(.x, na.rm = TRUE),
+    Mean = ~mean(.x, na.rm = TRUE), 
+    Q3 = ~quantile(.x, 0.75, na.rm = TRUE),
+    Max = ~max(.x, na.rm = TRUE),
+    SD = ~sd(.x, na.rm = TRUE),
+    Var = ~var(.x, na.rm = TRUE)
+  ),
+  .names = "{.col}_{.fn}"
+    ))
+  # view summary
+  print(grouped_summary)
