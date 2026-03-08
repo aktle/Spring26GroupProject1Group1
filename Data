@@ -1,4 +1,4 @@
-Question A. 1 and 2
+Questions A. 1 and 2
 # Import data into R 
 HINTSData_2020_clean <- read.csv("HINTSData_2020_clean.csv")
 # Preview of first 6 rows 
