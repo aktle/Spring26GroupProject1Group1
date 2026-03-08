@@ -1,3 +1,4 @@
+Question A. 1 and 2
 # Import data into R 
 HINTSData_2020_clean <- read.csv("HINTSData_2020_clean.csv")
 # Preview of first 6 rows 
@@ -44,6 +45,7 @@ WeeklyMinutesModerateExercise AvgDrinksPerWeek
 4                            60                1
 5                             0                0
 6                           540                2
+Question A. 3
 Select only the 8 variables 
 HINTS_subset <- HINTSData_2020_clean[, c("Age", 
                                           "AvgDrinksPerWeek", 
@@ -52,6 +54,7 @@ HINTS_subset <- HINTSData_2020_clean[, c("Age",
                                           "BirthGender", 
                                           "smokeStat", 
                                           "RaceEthn5")]
+Question B. 1
 #Check subset data and summary 
 str(HINTS_subset)
 'data.frame':	2402 obs. of  8 variables:
