@@ -149,4 +149,4 @@ var_results <- sapply(data[continuous_variables], var, na.rm = TRUE)
 print(var_results) }
 
 # Print
-my_summary_func(HINTS_subse
+my_summary_func(HINTS_subset)
