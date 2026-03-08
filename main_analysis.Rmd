@@ -9,19 +9,27 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Load Data from CSV
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# read data 
+HINTSData_2020_clean <- read.csv("data/HINTSData_2020_clean.csv")
 
 ```{r cars}
 summary(cars)
 ```
 
-## Including Plots
+## Data Cleaning
 
-You can also embed plots, for example:
+#Check subset data and summary 
+str(HINTS_subset)
+summary(HINTS_subset) 
+
+# Continuous numeric variables only, making a new vector
+continuous_variables <- c("Age", "AvgDrinksPerWeek", "WeeklyMinutesModerateExercise", "BMI")
+sd_results <- sapply(HINTS_subset[continuous_variables], sd, na.rm = TRUE)  
+
+# Print SD results
+print(sd_results)
 
 ```{r pressure, echo=FALSE}
 plot(pressure)
