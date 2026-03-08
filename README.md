@@ -147,7 +147,7 @@ my_summary_func <- function(data) {
 # Five-number summary and mean
 print(summary(data[continuous_variables]))
 # Standard deviation
-sd_results <- sapply(data[continuous_variables], sd, na.rm = TRUE)
+sd_results <- sapply(data[continuous_variables], sd, na.rm = TRUE) 
 print(sd_results)
 # Variance
 var_results <- sapply(data[continuous_variables], var, na.rm = TRUE)
