@@ -77,7 +77,7 @@ dev.off()
   # dev.off(), closes the plot device, in this case the PNG file
   # Interpretation: The bar chart shows the distribution of self-reported healthcare quality. Most respondents fall into the middle categories. Fewer rate 4-5. 
 
-png("output/RaceEthn5_barplot.png, width = 475, height = 546")
+png("output/RaceEthn5_barplot.png", width = 475, height = 546)
 
 HINTS_subset$RaceEthn5 <- factor (HINTS_subset$RaceEthn5)
 barplot(table(HINTS_subset$RaceEthn5),
