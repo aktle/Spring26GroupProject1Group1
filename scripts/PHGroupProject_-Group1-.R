@@ -106,7 +106,7 @@ class(HINTS_subset$BMI)
   install.packages("ggplot2")
   library(ggplot2)
   
-# Showing barchar
+# Showing barchart
   ggplot(HINTS_subset, aes (x = QualityCare)) + # ggplot() is telling R to use which data, aes -> variables mapped to axes
          geom_bar(fill = "lightblue") + # type of graph (in this case bar)
     labs(title = "Distribution of QualityCare", # labs is the titles and labels of axis
@@ -180,4 +180,5 @@ my_visual_func_II()
     
   
                                                                                                                                                             
+
                                                                                                                                                               
