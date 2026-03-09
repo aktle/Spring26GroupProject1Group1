@@ -1,4 +1,9 @@
 #B-1 
+## Data retrieval 
+
+# read data 
+HINTSData_2020_clean <- read.csv("data/HINTSData_2020_clean.csv")
+
 head(HINTSData_2020_clean)
 HINTS_subset <- HINTSData_2020_clean[, c("Age", 
                                  "AvgDrinksPerWeek", 
@@ -29,8 +34,8 @@ grouped_summary <- HINTS_subset |>
     across(
       all_of(continuous_variables),
     list(
-    Min = ~min(.x, na.rm = TRUE),
-    Q1 = ~quantile(.x, 0.25, na.rm = TRUE),
+    Min = ~min(.x, na.rm = TRUE), # .x is the variable being used, in this case within the continuous_variables ("Age", "AvgDrinksPerWeek", "WeeklyMinutesModerateExercise", "BMI") for example. R runs the command once for each of these
+    Q1 = ~quantile(.x, 0.25, na.rm = TRUE), # Ignore missing values (NA) is what na.rn means. Its used to ignore when a tableset might have null/no data spots
     Median = ~median(.x, na.rm = TRUE),
     Mean = ~mean(.x, na.rm = TRUE), 
     Q3 = ~quantile(.x, 0.75, na.rm = TRUE),
@@ -38,8 +43,9 @@ grouped_summary <- HINTS_subset |>
     SD = ~sd(.x, na.rm = TRUE),
     Var = ~var(.x, na.rm = TRUE)
   ),
-  .names = "{.col}_{.fn}"
+  .names = "{.col}_{.fn}" # {.col} = original column name and {.fn} = function name (Min, Mean, SD,), It gives the Original Name to the columns to its function
     ))
+
   # view statistical summary. The five-number summary, mean, standard deviation, and variance of continuous variables grouped or stratified by smoking status significantly impacts the individual's health. 
   print(grouped_summary)
 # skimr section
